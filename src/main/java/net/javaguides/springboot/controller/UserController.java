@@ -20,4 +20,12 @@ public class UserController {
         User saveUser = userService.createUser(user);
         return new ResponseEntity<>(saveUser, HttpStatus.CREATED);
     }
+
+    // build get User REST API
+    // http://localhost:8080/api/users/1
+    @GetMapping("{id}")
+    public ResponseEntity<User> getUserById(@PathVariable("id") Long userId){
+        User user = userService.getUserById(userId);
+        return new ResponseEntity<>(user, HttpStatus.OK);
+    }
 }
